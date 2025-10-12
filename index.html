@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMJE Star - 在线学习，开启快乐成长之旅</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        :root {
+            --primary: #6a5acd;
+            --secondary: #9370db;
+            --accent: #ba55d3;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4bb543;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e6e6fa 100%);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏样式 */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* 英雄区域样式 - 占满整个页面 */
+        .hero {
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 100px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: #555;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 60px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 35px;
+            font-size: 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(106, 90, 205, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* 统计数据样式 */
+        .stats {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .stats-numbers {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .stat-item {
+            text-align: center;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            min-width: 160px;
+        }
+        
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        /* 课程部分样式 - 增加间距和卡片高度 */
+        .courses-section {
+            padding: 120px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        
+        .section-title p {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .courses {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .course-image {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .course-card:hover .course-image img {
+            transform: scale(1.05);
+        }
+        
+        .course-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .course-category {
+            display: inline-block;
+            background: rgba(106, 90, 205, 0.1);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .course-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .course-description {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            flex-grow: 1;
+        }
+        
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 0.95rem;
+            margin-top: auto;
+        }
+        
+        /* 讲师部分样式 - 增加间距和卡片高度 */
+        .instructors-section {
+            padding: 120px 0;
+            background-color: white;
+            border-radius: 30px;
+            margin: 100px 0;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+        }
+        
+        .instructors {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        
+        .instructor-card {
+            background: var(--light);
+            border-radius: 20px;
+            overflow: hidden;
+            text-align: center;
+            padding: 40px 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .instructor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .instructor-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 25px;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .instructor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .instructor-name {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .instructor-title {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .instructor-bio {
+            color: #666;
+            font-size: 1rem;
+            flex-grow: 1;
+        }
+        
+        /* 三步学习流程样式 - 增加间距和卡片高度 */
+        .steps-section {
+            padding: 120px 0;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 40px 25px;
+            border-radius: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: var(--light);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 40px;
+        }
+        
+        .step h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .step p {
+            color: #666;
+            font-size: 1.05rem;
+            flex-grow: 1;
+        }
+        
+        /* 底部样式 */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 40px;
+            margin-top: 100px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column {
+            flex: 1;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid #444;
+            color: #999;
+            font-size: 1rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .hero {
+                padding: 100px 0;
+                min-height: 80vh;
+            }
+            
+            .steps, .courses, .instructors {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .stats-numbers {
+                gap: 20px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .steps, .courses, .instructors {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 80px 0;
+                min-height: 70vh;
+                margin-bottom: 80px;
+            }
+            
+            .courses-section, .instructors-section, .steps-section {
+                padding: 80px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <i class="fas fa-star"></i>
+                    <span>CMJE Star</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#">首页</a>
+                    <a href="#courses">课程</a>
+                    <a href="#instructors">讲师</a>
+                    <a href="#steps">学习流程</a>
+                    <a href="#">关于我们</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main>
+        <div class="container">
+            <!-- 英雄区域 -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>在线学习，开启快乐成长之旅</h1>
+                    <p>CMJE Star提供丰富有趣的在线课程，帮助你掌握生活技能，扩宽知识领域，助于健康快乐成长。</p>
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary">浏览课程</button>
+                        <button class="btn btn-secondary">老师介绍</button>
+                        <button class="btn btn-secondary">关于我们</button>
+                    </div>
+                    <div class="stats">
+                        <div class="stats-numbers">
+                            <div class="stat-item">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">专业课程</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">30+</div>
+                                <div class="stat-label">设计领域</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 课程部分 -->
+            <section id="courses" class="courses-section">
+                <div class="section-title">
+                    <h2>精选课程</h2>
+                    <p>探索丰富有趣的生活技能课程，开启快乐成长之旅</p>
+                </div>
+                <div class="courses">
+                    <div class="course-card" onclick="window.location.href='course-cooking.html'">
+                        <div class="course-image">
+                            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="烹饪艺术">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">生活技能</span>
+                            <h3 class="course-title">烹饪艺术入门</h3>
+                            <p class="course-description">学习基础烹饪技巧，制作美味健康的家常菜，培养独立生活能力。课程包含食材选择、刀工技巧、烹饪方法等内容，适合所有年龄段的学习者。</p>
+                            <div class="course-meta">
+                                <span><i class="far fa-clock"></i> 6周</span>
+                                <span><i class="far fa-user"></i> 初级</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card" onclick="window.location.href='course-gardening.html'">
+                        <div class="course-image">
+                            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="园艺">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">自然探索</span>
+                            <h3 class="course-title">家庭园艺与植物养护</h3>
+                            <p class="course-description">了解植物生长规律，学习种植技巧，打造属于自己的绿色空间。课程涵盖室内植物养护、小型菜园种植、植物病虫害防治等实用知识。</p>
+                            <div class="course-meta">
+                                <span><i class="far fa-clock"></i> 8周</span>
+                                <span><i class="far fa-user"></i> 初级</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card" onclick="window.location.href='course-mindfulness.html'">
+                        <div class="course-image">
+                            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="正念冥想">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">身心健康</span>
+                            <h3 class="course-title">正念冥想与情绪管理</h3>
+                            <p class="course-description">学习正念冥想技巧，提升情绪管理能力，培养积极心态。课程包含呼吸练习、冥想引导、压力管理策略等内容，帮助您建立健康的生活习惯。</p>
+                            <div class="course-meta">
+                                <span><i class="far fa-clock"></i> 4周</span>
+                                <span><i class="far fa-user"></i> 初级</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 讲师部分 -->
+            <section id="instructors" class="instructors-section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>优秀讲师</h2>
+                        <p>向生活专家学习，获得实用的生活技能和快乐成长经验</p>
+                    </div>
+                    <div class="instructors">
+                        <div class="instructor-card" onclick="window.location.href='instructor-zhang.html'">
+                            <div class="instructor-image">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="张老师">
+                            </div>
+                            <h3 class="instructor-name">张美琳</h3>
+                            <p class="instructor-title">生活技能专家</p>
+                            <p class="instructor-bio">10年生活教育经验，专注于实用生活技能培养，帮助学员提升独立生活能力。曾出版多本生活技能教育书籍，深受学员喜爱。</p>
+                        </div>
+                        
+                        <div class="instructor-card" onclick="window.location.href='instructor-li.html'">
+                            <div class="instructor-image">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="李老师">
+                            </div>
+                            <h3 class="instructor-name">李阳</h3>
+                            <p class="instructor-title">园艺与自然导师</p>
+                            <p class="instructor-bio">植物学硕士，15年园艺经验，擅长将自然知识与生活实践相结合。曾在多个社区开展园艺教育项目，帮助数千家庭打造绿色生活空间。</p>
+                        </div>
+                        
+                        <div class="instructor-card" onclick="window.location.href='instructor-wang.html'">
+                            <div class="instructor-image">
+                                <img src="https://images.unsplash.com/photo-1590086782957-93c06ef21604?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="王老师">
+                            </div>
+                            <h3 class="instructor-name">王静</h3>
+                            <p class="instructor-title">身心健康导师</p>
+                            <p class="instructor-bio">心理学博士，正念冥想认证导师，专注于心理健康与情绪管理研究。拥有丰富的临床经验，帮助众多学员改善心理健康状况。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 三步学习流程 -->
+            <section id="steps" class="steps-section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>简单三步，开启快乐学习之旅</h2>
+                        <p>无论你是想提升生活技能，还是探索新的兴趣爱好，CMJE Star都能帮助你轻松实现学习目标</p>
+                    </div>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3>探索课程</h3>
+                            <p>浏览我们丰富的课程目录，找到最适合你的学习路径。从生活技能到兴趣爱好，从身心健康到自然探索，应有尽有。我们的课程分类清晰，帮助您快速找到感兴趣的内容。</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3>选择兴趣</h3>
+                            <p>根据你的兴趣和需求选择课程，立即开始学习。我们提供灵活的学习计划，满足不同学员的需求。无论您是初学者还是有一定基础，都能找到适合您的课程。</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">
+                                <i class="fas fa-laugh-beam"></i>
+                            </div>
+                            <h3>快乐成长</h3>
+                            <p>随时随地访问课程内容，按照自己的节奏学习。获得讲师指导和同学支持，享受快乐成长的过程。我们的学习平台设计人性化，让学习成为一种愉悦的体验。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>关于CMJE Star</h3>
+                    <p>CMJE Star致力于为学习者提供丰富有趣的在线教育体验，帮助每个人掌握生活技能，扩宽知识领域，实现健康快乐成长。我们的使命是让学习变得简单、有趣且富有成效。</p>
+                </div>
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#courses">所有课程</a></li>
+                        <li><a href="#instructors">讲师团队</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>支持</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">使用条款</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> support@cmjestar.com</li>
+                        <li><i class="fas fa-phone"></i> +86 400-888-9999</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 北京市朝阳区创意园区</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 CMJE Star 在线学习平台. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为步骤卡片添加动画延迟
+            const steps = document.querySelectorAll('.step');
+            steps.forEach((step, index) => {
+                step.style.animationDelay = `${index * 0.2}s`;
+            });
+            
+            // 按钮点击效果
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                });
+            });
+            
+            // 为老师介绍和关于我们按钮添加功能
+            document.querySelector('.btn-secondary:nth-child(2)').addEventListener('click', function() {
+                document.getElementById('instructors').scrollIntoView({behavior: 'smooth'});
+            });
+            
+            document.querySelector('.btn-secondary:nth-child(3)').addEventListener('click', function() {
+                document.querySelector('footer').scrollIntoView({behavior: 'smooth'});
+            });
+            
+            // 浏览课程按钮功能
+            document.querySelector('.btn-primary').addEventListener('click', function() {
+                document.getElementById('courses').scrollIntoView({behavior: 'smooth'});
+            });
+        });
+    </script>
+</body>
+</html>
