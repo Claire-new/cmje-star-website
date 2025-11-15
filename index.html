@@ -12,7 +12,7 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
         }
-
+        
         :root {
             --primary: #6a5acd;
             --secondary: #9370db;
@@ -21,19 +21,19 @@
             --dark: #212529;
             --success: #4bb543;
         }
-
+        
         body {
             background: linear-gradient(135deg, #f5f7fa 0%, #e6e6fa 100%);
             color: var(--dark);
             line-height: 1.6;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
+        
         /* 导航栏样式 */
         header {
             background-color: rgba(255, 255, 255, 0.95);
@@ -42,44 +42,43 @@
             top: 0;
             z-index: 100;
         }
-
+        
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
         }
-
+        
         .logo {
             display: flex;
             align-items: center;
             font-size: 24px;
             font-weight: 700;
             color: var(--primary);
-            cursor: pointer;
         }
-
+        
         .logo i {
             margin-right: 10px;
             color: var(--accent);
         }
-
+        
         .nav-links {
             display: flex;
             gap: 30px;
         }
-
+        
         .nav-links a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
             transition: color 0.3s;
         }
-
+        
         .nav-links a:hover {
             color: var(--primary);
         }
-
+        
         /* 英雄区域样式 - 占满整个页面 */
         .hero {
             padding: 120px 0;
@@ -95,7 +94,7 @@
             justify-content: center;
             margin-bottom: 100px;
         }
-
+        
         .hero::before {
             content: '';
             position: absolute;
@@ -106,14 +105,14 @@
             background: rgba(255, 255, 255, 0.85);
             z-index: 1;
         }
-
+        
         .hero-content {
             position: relative;
             z-index: 2;
             max-width: 800px;
             margin: 0 auto;
         }
-
+        
         h1 {
             font-size: 3.5rem;
             margin-bottom: 30px;
@@ -123,13 +122,13 @@
             color: transparent;
             line-height: 1.2;
         }
-
+        
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 40px;
             color: #555;
         }
-
+        
         .cta-buttons {
             display: flex;
             gap: 20px;
@@ -137,7 +136,7 @@
             justify-content: center;
             flex-wrap: wrap;
         }
-
+        
         .btn {
             padding: 15px 35px;
             font-size: 18px;
@@ -147,29 +146,29 @@
             transition: all 0.3s ease;
             border: none;
         }
-
+        
         .btn-primary {
             background: var(--primary);
             color: white;
         }
-
+        
         .btn-primary:hover {
             background: var(--secondary);
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-
+        
         .btn-secondary {
             background: transparent;
             color: var(--primary);
             border: 2px solid var(--primary);
         }
-
+        
         .btn-secondary:hover {
             background: rgba(106, 90, 205, 0.1);
             transform: translateY(-3px);
         }
-
+        
         /* 统计数据样式 */
         .stats {
             display: flex;
@@ -177,14 +176,14 @@
             align-items: center;
             justify-content: center;
         }
-
+        
         .stats-numbers {
             display: flex;
             gap: 40px;
             flex-wrap: wrap;
             justify-content: center;
         }
-
+        
         .stat-item {
             text-align: center;
             background: white;
@@ -193,47 +192,47 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             min-width: 160px;
         }
-
+        
         .stat-number {
             font-size: 2.8rem;
             font-weight: 700;
             color: var(--primary);
         }
-
+        
         .stat-label {
             font-size: 1.1rem;
             color: #666;
         }
-
+        
         /* 课程部分样式 - 增加间距和卡片高度 */
         .courses-section {
             padding: 120px 0;
         }
-
+        
         .section-title {
             text-align: center;
             margin-bottom: 80px;
         }
-
+        
         .section-title h2 {
             font-size: 2.8rem;
             color: var(--dark);
             margin-bottom: 20px;
         }
-
+        
         .section-title p {
             font-size: 1.3rem;
             color: #666;
             max-width: 700px;
             margin: 0 auto;
         }
-
+        
         .courses {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 40px;
         }
-
+        
         .course-card {
             background: white;
             border-radius: 20px;
@@ -245,35 +244,35 @@
             display: flex;
             flex-direction: column;
         }
-
+        
         .course-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
-
+        
         .course-image {
             height: 220px;
             overflow: hidden;
         }
-
+        
         .course-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s;
         }
-
+        
         .course-card:hover .course-image img {
             transform: scale(1.05);
         }
-
+        
         .course-content {
             padding: 25px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
-
+        
         .course-category {
             display: inline-block;
             background: rgba(106, 90, 205, 0.1);
@@ -284,20 +283,20 @@
             margin-bottom: 15px;
             font-weight: 600;
         }
-
+        
         .course-title {
             font-size: 1.4rem;
             margin-bottom: 15px;
             color: var(--dark);
         }
-
+        
         .course-description {
             color: #666;
             margin-bottom: 20px;
             font-size: 1rem;
             flex-grow: 1;
         }
-
+        
         .course-meta {
             display: flex;
             justify-content: space-between;
@@ -305,56 +304,7 @@
             font-size: 0.95rem;
             margin-top: auto;
         }
-
-        /* B站视频链接样式 */
-        .video-links {
-            margin: 15px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .video-link {
-            display: flex;
-            align-items: center;
-            padding: 10px 15px;
-            background: rgba(251, 114, 153, 0.1);
-            border: 1px solid rgba(251, 114, 153, 0.3);
-            border-radius: 8px;
-            color: #FB7299;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .video-link:hover {
-            background: rgba(251, 114, 153, 0.2);
-            transform: translateX(5px);
-        }
-
-        .video-link i {
-            margin-right: 8px;
-            font-size: 1rem;
-        }
-
-        .bilibili-badge {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(251, 114, 153, 0.1);
-            color: #FB7299;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-            border: 1px solid #FB7299;
-        }
-
-        .bilibili-badge i {
-            margin-right: 5px;
-        }
-
+        
         /* 讲师部分样式 - 增加间距和卡片高度 */
         .instructors-section {
             padding: 120px 0;
@@ -363,13 +313,13 @@
             margin: 100px 0;
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
         }
-
+        
         .instructors {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 40px;
         }
-
+        
         .instructor-card {
             background: var(--light);
             border-radius: 20px;
@@ -383,12 +333,12 @@
             flex-direction: column;
             align-items: center;
         }
-
+        
         .instructor-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
-
+        
         .instructor-image {
             width: 140px;
             height: 140px;
@@ -398,43 +348,43 @@
             border: 5px solid white;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-
+        
         .instructor-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
+        
         .instructor-name {
             font-size: 1.4rem;
             margin-bottom: 15px;
             color: var(--dark);
         }
-
+        
         .instructor-title {
             color: var(--primary);
             margin-bottom: 20px;
             font-weight: 500;
             font-size: 1.1rem;
         }
-
+        
         .instructor-bio {
             color: #666;
             font-size: 1rem;
             flex-grow: 1;
         }
-
+        
         /* 三步学习流程样式 - 增加间距和卡片高度 */
         .steps-section {
             padding: 120px 0;
         }
-
+        
         .steps {
             display: flex;
             justify-content: space-between;
             gap: 40px;
         }
-
+        
         .step {
             flex: 1;
             text-align: center;
@@ -447,12 +397,12 @@
             flex-direction: column;
             align-items: center;
         }
-
+        
         .step:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
-
+        
         .step-icon {
             width: 100px;
             height: 100px;
@@ -465,19 +415,19 @@
             margin: 0 auto 25px;
             font-size: 40px;
         }
-
+        
         .step h3 {
             font-size: 1.6rem;
             margin-bottom: 20px;
             color: var(--dark);
         }
-
+        
         .step p {
             color: #666;
             font-size: 1.05rem;
             flex-grow: 1;
         }
-
+        
         /* 底部样式 */
         footer {
             background: var(--dark);
@@ -485,42 +435,42 @@
             padding: 80px 0 40px;
             margin-top: 100px;
         }
-
+        
         .footer-content {
             display: flex;
             justify-content: space-between;
             gap: 50px;
             margin-bottom: 50px;
         }
-
+        
         .footer-column {
             flex: 1;
         }
-
+        
         .footer-column h3 {
             font-size: 1.4rem;
             margin-bottom: 25px;
             color: var(--accent);
         }
-
+        
         .footer-links {
             list-style: none;
         }
-
+        
         .footer-links li {
             margin-bottom: 12px;
         }
-
+        
         .footer-links a {
             color: #ccc;
             text-decoration: none;
             transition: color 0.3s;
         }
-
+        
         .footer-links a:hover {
             color: var(--accent);
         }
-
+        
         .copyright {
             text-align: center;
             padding-top: 40px;
@@ -528,53 +478,63 @@
             color: #999;
             font-size: 1rem;
         }
-
+        
         /* 响应式设计 */
         @media (max-width: 992px) {
             .hero {
                 padding: 100px 0;
                 min-height: 80vh;
             }
+            
             .steps, .courses, .instructors {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
             .footer-content {
                 flex-direction: column;
             }
         }
-
+        
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
                 gap: 20px;
             }
+            
             .nav-links {
                 gap: 15px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
+            
             .stats {
                 flex-direction: column;
                 gap: 20px;
             }
+            
             .stats-numbers {
                 gap: 20px;
             }
+            
             h1 {
                 font-size: 2.5rem;
             }
+            
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
+            
             .steps, .courses, .instructors {
                 grid-template-columns: 1fr;
             }
+            
             .hero {
                 padding: 80px 0;
                 min-height: 70vh;
                 margin-bottom: 80px;
             }
+            
             .courses-section, .instructors-section, .steps-section {
                 padding: 80px 0;
             }
@@ -586,7 +546,7 @@
     <header>
         <div class="container">
             <div class="navbar">
-                <div class="logo" onclick="window.location.href='#'">
+                <div class="logo">
                     <i class="fas fa-star"></i>
                     <span>CMJE Star</span>
                 </div>
@@ -636,95 +596,47 @@
                     <p>探索丰富有趣的生活技能课程，开启快乐成长之旅</p>
                 </div>
                 <div class="courses">
-                    <!-- 烹饪课程 -->
-                    <div class="course-card">
+                    <div class="course-card" onclick="window.location.href='course-cooking.html'">
                         <div class="course-image">
                             <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="烹饪艺术">
                         </div>
                         <div class="course-content">
                             <span class="course-category">生活技能</span>
                             <h3 class="course-title">烹饪艺术入门</h3>
-                            
-                            <div class="bilibili-badge">
-                                <i class="fas fa-play-circle"></i> B站视频教程
-                            </div>
-                            
-                            <div class="video-links">
-                                <a class="video-link" href="https://www.bilibili.com/video/BV1GJ411x7h7/" target="_blank" onclick="event.stopPropagation()">
-                                    <i class="fab fa-bilibili"></i> 基础刀工技巧教学
-                                </a>
-                                <a class="video-link" href="https://www.bilibili.com/video/BV1Js4y1X7sR/" target="_blank" onclick="event.stopPropagation()">
-                                    <i class="fab fa-bilibili"></i> 家常菜烹饪入门
-                                </a>
-                            </div>
-                            
                             <p class="course-description">学习基础烹饪技巧，制作美味健康的家常菜，培养独立生活能力。课程包含食材选择、刀工技巧、烹饪方法等内容，适合所有年龄段的学习者。</p>
                             <div class="course-meta">
                                 <span><i class="far fa-clock"></i> 6周</span>
                                 <span><i class="far fa-user"></i> 初级</span>
-                                <span><i class="fas fa-video"></i> 12个视频</span>
                             </div>
                         </div>
                     </div>
-
-                    <!-- 园艺课程 -->
-                    <div class="course-card">
+                    
+                    <div class="course-card" onclick="window.location.href='course-gardening.html'">
                         <div class="course-image">
                             <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="园艺">
                         </div>
                         <div class="course-content">
                             <span class="course-category">自然探索</span>
                             <h3 class="course-title">家庭园艺与植物养护</h3>
-                            
-                            <div class="bilibili-badge">
-                                <i class="fas fa-play-circle"></i> B站视频教程
-                            </div>
-                            
-                            <div class="video-links">
-                                <a class="video-link" href="https://www.bilibili.com/video/BV1Q4411Y7QQ/" target="_blank" onclick="event.stopPropagation()">
-                                    <i class="fab fa-bilibili"></i> 室内植物养护指南
-                                </a>
-                                <a class="video-link" href="https://www.bilibili.com/video/BV1Cb4y1y7iS/" target="_blank" onclick="event.stopPropagation()">
-                                    <i class="fab fa-bilibili"></i> 阳台菜园种植技巧
-                                </a>
-                            </div>
-                            
                             <p class="course-description">了解植物生长规律，学习种植技巧，打造属于自己的绿色空间。课程涵盖室内植物养护、小型菜园种植、植物病虫害防治等实用知识。</p>
                             <div class="course-meta">
                                 <span><i class="far fa-clock"></i> 8周</span>
                                 <span><i class="far fa-user"></i> 初级</span>
-                                <span><i class="fas fa-video"></i> 15个视频</span>
                             </div>
                         </div>
                     </div>
-
-                    <!-- 正念冥想课程 -->
-                    <div class="course-card">
+                    
+                    <div class="course-card" onclick="window.location.href='course-mindfulness.html'">
                         <div class="course-image">
                             <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="正念冥想">
                         </div>
                         <div class="course-content">
                             <span class="course-category">身心健康</span>
                             <h3 class="course-title">正念冥想与情绪管理</h3>
-                            
-                            <div class="bilibili-badge">
-                                <i class="fas fa-play-circle"></i> B站视频教程
-                            </div>
-                            
-                            <div class="video-links">
-                                <a class="video-link" href="https://www.bilibili.com/video/BV1q4411U7U9/" target="_blank" onclick="event.stopPropagation()">
-                                    <i class="fab fa-bilibili"></i> 正念冥想入门指导
-                                </a>
-                                <a class="video-link" href="https://www.bilibili.com/video/BV1Rb41187iK/" target="_blank" onclick="event.stopPropagation()">
-                                    <i class="fab fa-bilibili"></i> 情绪管理实用技巧
-                                </a>
-                            </div>
-                            
                             <p class="course-description">学习正念冥想技巧，提升情绪管理能力，培养积极心态。课程包含呼吸练习、冥想引导、压力管理策略等内容，帮助您建立健康的生活习惯。</p>
                             <div class="course-meta">
                                 <span><i class="far fa-clock"></i> 4周</span>
                                 <span><i class="far fa-user"></i> 初级</span>
-                                <span><i class="fas fa-video"></i> 8个视频</span>
                             </div>
                         </div>
                     </div>
@@ -739,7 +651,7 @@
                         <p>向生活专家学习，获得实用的生活技能和快乐成长经验</p>
                     </div>
                     <div class="instructors">
-                        <div class="instructor-card">
+                        <div class="instructor-card" onclick="window.location.href='instructor-zhang.html'">
                             <div class="instructor-image">
                                 <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="张老师">
                             </div>
@@ -747,7 +659,8 @@
                             <p class="instructor-title">生活技能专家</p>
                             <p class="instructor-bio">10年生活教育经验，专注于实用生活技能培养，帮助学员提升独立生活能力。曾出版多本生活技能教育书籍，深受学员喜爱。</p>
                         </div>
-                        <div class="instructor-card">
+                        
+                        <div class="instructor-card" onclick="window.location.href='instructor-li.html'">
                             <div class="instructor-image">
                                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="李老师">
                             </div>
@@ -755,7 +668,8 @@
                             <p class="instructor-title">园艺与自然导师</p>
                             <p class="instructor-bio">植物学硕士，15年园艺经验，擅长将自然知识与生活实践相结合。曾在多个社区开展园艺教育项目，帮助数千家庭打造绿色生活空间。</p>
                         </div>
-                        <div class="instructor-card">
+                        
+                        <div class="instructor-card" onclick="window.location.href='instructor-wang.html'">
                             <div class="instructor-image">
                                 <img src="https://images.unsplash.com/photo-1590086782957-93c06ef21604?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="王老师">
                             </div>
@@ -803,6 +717,19 @@
     </main>
 
     <!-- 页脚 -->
+     <!-- 访问量统计模块：总浏览量 + 当前在线人数 -->
+<div style="text-align: center; padding: 30px 0; background: white; border-radius: 15px; margin: 50px auto; max-width: 800px; box-shadow: 0 2px 15px rgba(0,0,0,0.05);">
+  <!-- 引入不蒜子统计脚本 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <!-- 全站总浏览量（PV：刷新、多页面访问都会累计） -->
+  <span style="font-size: 1.1rem; color: var(--primary); margin: 0 20px;">
+    全站总访问量：<span id="busuanzi_value_site_pv" style="font-weight: 700; font-size: 1.3rem;"></span> 次
+  </span>
+  <!-- 当前在线人数（UV：同一用户同一时段只记1次） -->
+  <span style="font-size: 1.1rem; color: var(--accent); margin: 0 20px;">
+    当前在线：<span id="busuanzi_value_site_uv" style="font-weight: 700; font-size: 1.3rem;"></span> 人
+  </span>
+</div>
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -851,7 +778,7 @@
             steps.forEach((step, index) => {
                 step.style.animationDelay = `${index * 0.2}s`;
             });
-
+            
             // 按钮点击效果
             const buttons = document.querySelectorAll('.btn');
             buttons.forEach(button => {
@@ -862,16 +789,16 @@
                     }, 200);
                 });
             });
-
+            
             // 为老师介绍和关于我们按钮添加功能
             document.querySelector('.btn-secondary:nth-child(2)').addEventListener('click', function() {
                 document.getElementById('instructors').scrollIntoView({behavior: 'smooth'});
             });
-
+            
             document.querySelector('.btn-secondary:nth-child(3)').addEventListener('click', function() {
                 document.querySelector('footer').scrollIntoView({behavior: 'smooth'});
             });
-
+            
             // 浏览课程按钮功能
             document.querySelector('.btn-primary').addEventListener('click', function() {
                 document.getElementById('courses').scrollIntoView({behavior: 'smooth'});
